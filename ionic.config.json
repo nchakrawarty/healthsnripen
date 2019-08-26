@@ -1,5 +1,7 @@
 {
   "name": "healthsnripen",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

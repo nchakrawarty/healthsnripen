@@ -1,9 +1,64 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
+      <ion-title>
+          Ionic Blank Page
+      </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-item>
+      <ion-label stacked>
+          Set weight
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="weight" placeholder="Enter Weight"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>
+          Current Weight
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="CurrentWeight" readonly></ion-input>
+      <ion-label>
+          Current Height: {{CurrentHeight}}
+        </ion-label>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked>
+          Steps last 24hr:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="stepcount" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      DOB: {{dob}}
+    </ion-label>
+    <ion-label>
+        Gender: {{gender}}
+      </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      Blood Group: {{bloodType}}
+    </ion-label>
+  </ion-item>
+<ion-item>
+ 
+</ion-item>
+  <ion-button full (click)="saveWeight()">Set Weight</ion-button>
+  <ion-button full (click)="saveWorkOut()">Set a Workout</ion-button>
+  <ion-list>
+    
+      <ion-card *ngFor="let workout of workouts">
+        
+          <ion-card-header> {{workout.calories}} </ion-card-header>
+          <ion-card-content>
+              <p>Activity: {{workout.activityType}} </p>
+              <p>Duration: {{workout.duration/60}} </p>
+              <p>Date: {{workout.startDate | date: 'short'}} </p>
+              <p>Distance: {{workout.miles}} miles </p>
+              <p>Distance in last 24hr: {{distance}} </p>
+          </ion-card-content>
+      </ion-card>
+  </ion-list>
+</ion-content>
